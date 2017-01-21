@@ -8,3 +8,5 @@ git pull                         - downloads all updates other people made to yo
 git add .                        - adds all the stuff you did so it's ready to be committed
 git commit -m "mymessagehere"    - commits your work so it's ready to be pushed.
 git push
+
+jacob
