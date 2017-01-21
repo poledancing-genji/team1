@@ -23,8 +23,18 @@ public class CenterCamera : MonoBehaviour {
         distApart = 1+Vector3.Distance(this.transform.position, obj1.transform.position);
         camGoalPos = this.transform.position;
         camGoalPos.z = -10;
-        camGoalDist = camGoalDist * 0.9f + distApart * 0.1f;
+        float distDiff = camGoalDist - distApart;
+        if (distApart < camGoalDist && camGoalDist < 5)
+        {
+            // final zoom in slower
+            camGoalDist = camGoalDist - distDiff*Mathf.Min(1, (camGoalDist - distDiff));
+        }
+        else
+        {
+            camGoalDist = camGoalDist - distDiff;
+        }
+
         cam.transform.position = camGoalPos;
-        cam.orthographicSize = Mathf.Max(4, distApart);
+        cam.orthographicSize = Mathf.Max(4, camGoalDist);
     }
 }
