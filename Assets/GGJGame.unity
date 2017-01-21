@@ -379,7 +379,7 @@ Prefab:
     - target: {fileID: 108404924900828118, guid: 35798a4ab75dc524e9f3bb2f0ef4478b,
         type: 2}
       propertyPath: m_Shadows.m_NearPlane
-      value: 0.08
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 108404924900828118, guid: 35798a4ab75dc524e9f3bb2f0ef4478b,
         type: 2}
@@ -399,22 +399,22 @@ Prefab:
     - target: {fileID: 108404924900828118, guid: 35798a4ab75dc524e9f3bb2f0ef4478b,
         type: 2}
       propertyPath: m_Range
-      value: 2.5051842
+      value: 3.97
       objectReference: {fileID: 0}
     - target: {fileID: 108404924900828118, guid: 35798a4ab75dc524e9f3bb2f0ef4478b,
         type: 2}
       propertyPath: m_Intensity
-      value: 4.01
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 108404924900828118, guid: 35798a4ab75dc524e9f3bb2f0ef4478b,
         type: 2}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 108404924900828118, guid: 35798a4ab75dc524e9f3bb2f0ef4478b,
         type: 2}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 108404924900828118, guid: 35798a4ab75dc524e9f3bb2f0ef4478b,
         type: 2}
@@ -445,6 +445,11 @@ Prefab:
         type: 2}
       propertyPath: m_Shadows.m_Type
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 108404924900828118, guid: 35798a4ab75dc524e9f3bb2f0ef4478b,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 35798a4ab75dc524e9f3bb2f0ef4478b, type: 2}
