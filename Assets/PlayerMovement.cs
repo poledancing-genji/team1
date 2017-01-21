@@ -4,9 +4,9 @@ using UnityEngine;
 
 
 
-public class PlayerScript : MonoBehaviour {
-    Vector3 leftRotate = new Vector3(0,2,0);
-    Vector3 rightRotate = new Vector3(0, -2, 0);
+public class PlayerMovement : MonoBehaviour {
+    Vector3 rotateVec = new Vector3(0,0,0);
+    float rotateSpeed = 0;
     Vector3 playerPos = new Vector3(0, 0, 0);
 
     // Use this for initialization
@@ -18,7 +18,6 @@ public class PlayerScript : MonoBehaviour {
     // float velX = 0.0f;
     // float velY = 0.0f;
     float forwardVel = 0.0f;
-    float speedMod = 1.0f;
     bool wDown = false;
     bool aDown = false;
     bool sDown = false;
@@ -65,12 +64,19 @@ public class PlayerScript : MonoBehaviour {
         {
         } else if (dDown)
         {
-            this.transform.Rotate(rightRotate);
+            rotateSpeed = -1.5f/(1+forwardVel*4);
         } else if (aDown)
         {
-            this.transform.Rotate(leftRotate);
-            // this.transform.eulerAngles = new Vector3(this.transform.eulerAngles.x-1, this.transform.eulerAngles.y, this.transform.eulerAngles.z);
+            rotateSpeed = 1.5f/ (1 + forwardVel*4);
         }
+        rotateVec.y = rotateVec.y + rotateSpeed;
+        rotateSpeed = rotateSpeed * 0.2f;
+        this.transform.Rotate(rotateVec);
+        if (Mathf.Abs(rotateVec.y) < 1)
+        {
+            rotateVec.y = 0;
+        }
+        rotateVec.y = rotateVec.y * 0.8f;
         //this.transform.rotation
         float dirFinal = this.transform.eulerAngles.x;
         if (this.transform.eulerAngles.y > 180)

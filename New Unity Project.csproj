@@ -81,7 +81,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\PlayerScript.cs" />
+    <Compile Include="Assets\PlayerCollisionWall.cs" />
+    <Compile Include="Assets\PlayerMovement.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
