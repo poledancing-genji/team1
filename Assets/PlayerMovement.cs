@@ -30,7 +30,8 @@ public class PlayerMovement : MonoBehaviour {
     }
     */
     void Update () {
-        forwardVel = forwardVel * 0.93f;
+        rotateVec.y = 0;// rotateVec.y * 0.8f;
+        forwardVel = forwardVel * 0.95f;
 		if(Input.GetKeyDown(KeyCode.W)) {
             wDown = true;
         } else if (Input.GetKeyDown(KeyCode.S)) {
@@ -70,33 +71,27 @@ public class PlayerMovement : MonoBehaviour {
         {
         } else if (dDown)
         {
-            if (wDown || sDown)
-            {
-                rotateSpeed = -1.0f;
-            }
-            else
-            {
-                rotateSpeed = -1.5f;
-            }
+            rotateSpeed = -5f;
         } else if (aDown)
         {
-            if (wDown || sDown)
-            {
-                rotateSpeed = 1.0f;
-            }
-            else
-            {
-                rotateSpeed = 1.5f;
-            }
+            rotateSpeed = 5f;
+        }
+        if (wDown || sDown)
+        {
+            rotateSpeed = rotateSpeed * 0.25f;
         }
         rotateVec.y = rotateVec.y + rotateSpeed;
-        rotateSpeed = rotateSpeed * 0.2f;
+        Debug.Log(rotateSpeed);
+        rotateSpeed = rotateSpeed * 0.85f;
+        if (Mathf.Abs(rotateSpeed) < 0.7f)
+        {
+            rotateSpeed = 0;
+        }
         this.transform.Rotate(rotateVec);
-        if (Mathf.Abs(rotateVec.y) < 1)
+        if (Mathf.Abs(rotateVec.y) < 0.5f)
         {
             rotateVec.y = 0;
         }
-        rotateVec.y = rotateVec.y * 0.8f;
         //this.transform.rotation
         float dirFinal = this.transform.eulerAngles.x;
         if (this.transform.eulerAngles.y > 180)
