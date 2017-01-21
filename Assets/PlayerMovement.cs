@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour {
     }
     */
     void Update () {
-        forwardVel = forwardVel * 0.9f;
+        forwardVel = forwardVel * 0.93f;
 		if(Input.GetKeyDown(KeyCode.W)) {
             wDown = true;
         } else if (Input.GetKeyDown(KeyCode.S)) {
@@ -70,10 +70,24 @@ public class PlayerMovement : MonoBehaviour {
         {
         } else if (dDown)
         {
-            rotateSpeed = -1.5f/(1+forwardVel*0.15f);
+            if (wDown || sDown)
+            {
+                rotateSpeed = -1.0f;
+            }
+            else
+            {
+                rotateSpeed = -1.5f;
+            }
         } else if (aDown)
         {
-            rotateSpeed = 1.5f/ (1 + forwardVel*0.15f);
+            if (wDown || sDown)
+            {
+                rotateSpeed = 1.0f;
+            }
+            else
+            {
+                rotateSpeed = 1.5f;
+            }
         }
         rotateVec.y = rotateVec.y + rotateSpeed;
         rotateSpeed = rotateSpeed * 0.2f;
