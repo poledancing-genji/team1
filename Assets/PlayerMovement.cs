@@ -8,21 +8,27 @@ public class PlayerMovement : MonoBehaviour {
     Vector3 rotateVec = new Vector3(0,0,0);
     float rotateSpeed = 0;
     Vector3 playerPos = new Vector3(0, 0, 0);
-
+    Vector3 playerVel = new Vector3(0, 0, 0);
+    public Rigidbody rb;
     // Use this for initialization
     void Start () {
+        rb = GetComponent<Rigidbody>();
         playerPos.x = this.transform.position.x;
         playerPos.y = this.transform.position.y;
         playerPos.z = this.transform.position.z;
     }
-    // float velX = 0.0f;
-    // float velY = 0.0f;
+
     float forwardVel = 0.0f;
     bool wDown = false;
     bool aDown = false;
     bool sDown = false;
     bool dDown = false;
     // Update is called once per frame
+/*    void FixedUpdate()
+    {
+        rb.AddForce(1, 1, 1, ForceMode.Impulse);
+    }
+    */
     void Update () {
         forwardVel = forwardVel * 0.9f;
 		if(Input.GetKeyDown(KeyCode.W)) {
@@ -55,19 +61,19 @@ public class PlayerMovement : MonoBehaviour {
         }
 
         if (wDown) {
-            forwardVel += 0.025f;
+            forwardVel += 0.25f;
         } else if (sDown)
         {
-            forwardVel = forwardVel * 0.95f - 0.017f;
+            forwardVel = forwardVel * 0.95f - 0.17f;
         }
         if (aDown && dDown)
         {
         } else if (dDown)
         {
-            rotateSpeed = -1.5f/(1+forwardVel*4);
+            rotateSpeed = -1.5f/(1+forwardVel*0.15f);
         } else if (aDown)
         {
-            rotateSpeed = 1.5f/ (1 + forwardVel*4);
+            rotateSpeed = 1.5f/ (1 + forwardVel*0.15f);
         }
         rotateVec.y = rotateVec.y + rotateSpeed;
         rotateSpeed = rotateSpeed * 0.2f;
@@ -87,7 +93,10 @@ public class PlayerMovement : MonoBehaviour {
         float velY = Mathf.Cos(dirFinal / 57.2958f) * forwardVel;
         playerPos.x = playerPos.x + velX;
         playerPos.y = playerPos.y + velY;
-        this.transform.position = playerPos;
-
+        playerVel.x = velX;
+        playerVel.y = velY;
+        // this.transform.position = playerPos;
+        rb.velocity = playerVel;
+        rb.AddForce(velX, velY, 0, ForceMode.VelocityChange);
     }
 }

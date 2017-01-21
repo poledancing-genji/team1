@@ -1,7 +1,4 @@
-<<<<<<< Updated upstream
 Base path: C:/Program Files/Unity/Editor/Data
 Cmd: getPlatforms
-=======
-Base path: C:/Program Files/Unity/Editor/Data
-Cmd: getPlatforms
->>>>>>> Stashed changes
+Cmd: preprocess
+  insize=2379 outsize=1059 ok=1
