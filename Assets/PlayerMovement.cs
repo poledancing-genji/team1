@@ -7,6 +7,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
     Vector3 rotateVec = new Vector3(0,0,0);
     float rotateSpeed = 0;
+    public bool ASDF;
     Vector3 playerPos = new Vector3(0, 0, 0);
     Vector3 playerVel = new Vector3(0, 0, 0);
     public Rigidbody rb;
@@ -32,33 +33,76 @@ public class PlayerMovement : MonoBehaviour {
     void Update () {
         rotateVec.y = 0;// rotateVec.y * 0.8f;
         forwardVel = forwardVel * 0.95f;
-		if(Input.GetKeyDown(KeyCode.W)) {
-            wDown = true;
-        } else if (Input.GetKeyDown(KeyCode.S)) {
-            sDown = true;
-        }
-        if (Input.GetKeyDown(KeyCode.A)) {
-            aDown = true;
-        }
-        else if (Input.GetKeyDown(KeyCode.D)) {
-            dDown = true;
-        }
+        if (ASDF)
+        {
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                wDown = true;
+            }
+            else if (Input.GetKeyDown(KeyCode.S))
+            {
+                sDown = true;
+            }
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                aDown = true;
+            }
+            else if (Input.GetKeyDown(KeyCode.D))
+            {
+                dDown = true;
+            }
 
-        if (Input.GetKeyUp(KeyCode.W))
+            if (Input.GetKeyUp(KeyCode.W))
+            {
+                wDown = false;
+            }
+            else if (Input.GetKeyUp(KeyCode.S))
+            {
+                sDown = false;
+            }
+            if (Input.GetKeyUp(KeyCode.A))
+            {
+                aDown = false;
+            }
+            else if (Input.GetKeyUp(KeyCode.D))
+            {
+                dDown = false;
+            }
+        } else
         {
-            wDown = false;
-        }
-        else if (Input.GetKeyUp(KeyCode.S))
-        {
-            sDown = false;
-        }
-        if (Input.GetKeyUp(KeyCode.A))
-        {
-            aDown = false;
-        }
-        else if (Input.GetKeyUp(KeyCode.D))
-        {
-            dDown = false;
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                wDown = true;
+            }
+            else if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                sDown = true;
+            }
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                aDown = true;
+            }
+            else if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                dDown = true;
+            }
+
+            if (Input.GetKeyUp(KeyCode.UpArrow))
+            {
+                wDown = false;
+            }
+            else if (Input.GetKeyUp(KeyCode.DownArrow))
+            {
+                sDown = false;
+            }
+            if (Input.GetKeyUp(KeyCode.LeftArrow))
+            {
+                aDown = false;
+            }
+            else if (Input.GetKeyUp(KeyCode.RightArrow))
+            {
+                dDown = false;
+            }
         }
 
         if (wDown) {
@@ -81,7 +125,6 @@ public class PlayerMovement : MonoBehaviour {
             rotateSpeed = rotateSpeed * 0.25f;
         }
         rotateVec.y = rotateVec.y + rotateSpeed;
-        Debug.Log(rotateSpeed);
         rotateSpeed = rotateSpeed * 0.85f;
         if (Mathf.Abs(rotateSpeed) < 0.7f)
         {
