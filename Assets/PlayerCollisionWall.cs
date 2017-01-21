@@ -11,10 +11,6 @@ public class PlayerCollisionWall : MonoBehaviour {
 	}
 
     // Update is called once per frame
-    void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("hi");
-    }
 
     void Update () {
         foreach (Transform child in collideables.transform)
