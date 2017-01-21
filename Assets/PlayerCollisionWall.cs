@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerCollisionWall : MonoBehaviour {
     public GameObject collideables;
-    float playerSize = 0.5f;
+    // float playerSize = 0.5f;
     // Use this for initialization
     void Start () {
 		
@@ -12,7 +12,8 @@ public class PlayerCollisionWall : MonoBehaviour {
 
     // Update is called once per frame
 
-    void Update () {
+    /*
+     * void Update () {
         foreach (Transform child in collideables.transform)
         {
             float xPos = this.transform.position.x;
@@ -32,4 +33,5 @@ public class PlayerCollisionWall : MonoBehaviour {
             // Something(child.gameObject);
         }
     }
+    */
 }

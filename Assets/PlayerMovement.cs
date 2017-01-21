@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour {
     }
     */
     void Update () {
-        forwardVel = forwardVel * 0.9f;
+        forwardVel = forwardVel * 0.93f;
 		if(Input.GetKeyDown(KeyCode.W)) {
             wDown = true;
         } else if (Input.GetKeyDown(KeyCode.S)) {
