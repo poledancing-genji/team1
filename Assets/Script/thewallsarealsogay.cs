@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class thewallsarealsogay : MonoBehaviour {
+public class thewallsarealsogay : MonoBehaviour
+{
     public MeshRenderer wallRenderer;
     public RaveController r;
     float initialFadeSpeed = 0.00005f;
@@ -13,20 +14,21 @@ public class thewallsarealsogay : MonoBehaviour {
         //groundColor = GameObject.Find("Ground").GetComponent<MeshRenderer>().materials[0].GetColor("_Color");
         r = GameObject.Find("Raver").GetComponent<RaveController>();
     }
-    
+
     public void ActivateWall()
     {
-        Debug.Log("asldkfjsjfsl");
         StopCoroutine("pulse");
         StartCoroutine(pulse());
     }
 
-    IEnumerator pulse ()
+    IEnumerator pulse()
     {
         float alpha = 1f;
-        while (alpha > 0f) {
+        while (alpha > 0f)
+        {
             Color currColor = r.currentColor;
-            currColor.a = alpha;
+            float resultantAlpha = Mathf.Max(wallRenderer.materials[0].GetColor("_LineColor").a - fadeSpeed, alpha);
+            currColor.a = resultantAlpha;
             wallRenderer.materials[0].SetColor("_LineColor", currColor);
             alpha -= fadeSpeed;
             fadeSpeed += fadeAcc;

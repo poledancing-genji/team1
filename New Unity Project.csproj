@@ -81,14 +81,17 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\CenterCamera.cs" />
-    <Compile Include="Assets\PlayerCameraFollow.cs" />
-    <Compile Include="Assets\PlayerCollisionPlayer.cs" />
-    <Compile Include="Assets\PlayerCollisionWall.cs" />
-    <Compile Include="Assets\PlayerMovement.cs" />
-    <Compile Include="Assets\lightbehaviourscript.cs" />
+    <Compile Include="Assets\Script\CenterCamera.cs" />
+    <Compile Include="Assets\Script\PlayerCameraFollow.cs" />
+    <Compile Include="Assets\Script\PlayerCollisionPlayer.cs" />
+    <Compile Include="Assets\Script\PlayerCollisionWall.cs" />
+    <Compile Include="Assets\Script\PlayerMovement.cs" />
+    <Compile Include="Assets\Script\RaveController.cs" />
+    <Compile Include="Assets\Script\lightbehaviourscript.cs" />
+    <Compile Include="Assets\Script\thewallsarealsogay.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Shaders\Outline.shader" />
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
     <None Include="Assets\Standard Assets\ParticleSystems\ParticleSystemsGuidelines.txt" />
     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />

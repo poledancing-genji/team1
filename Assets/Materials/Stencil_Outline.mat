@@ -30,7 +30,7 @@ Material:
       second: 0.001
     - first:
         name: _LineWidth
-      second: 0.01
+      second: 0.03
     - first:
         name: _Thickness
       second: 0.5
