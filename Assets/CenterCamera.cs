@@ -24,10 +24,10 @@ public class CenterCamera : MonoBehaviour {
         camGoalPos = this.transform.position;
         camGoalPos.z = -10;
         float distDiff = camGoalDist - distApart;
-        if (distApart < camGoalDist && camGoalDist < 5)
+        if (distApart < camGoalDist && camGoalDist < 8)
         {
             // final zoom in slower
-            camGoalDist = camGoalDist - distDiff*Mathf.Min(1, (camGoalDist - distDiff));
+            camGoalDist = camGoalDist - distDiff*Mathf.Min(1, (camGoalDist - Mathf.Max(4, distDiff))*0.25f);
         }
         else
         {

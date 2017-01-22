@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-
 public class PlayerMovement : MonoBehaviour {
     Vector3 rotateVec = new Vector3(0,0,0);
     float rotateSpeed = 0;
+    float velX = 0;
+    float velY = 0;
+    float playerControl = 1;
     public bool ASDF;
     Vector3 playerPos = new Vector3(0, 0, 0);
     Vector3 playerVel = new Vector3(0, 0, 0);
@@ -25,12 +27,35 @@ public class PlayerMovement : MonoBehaviour {
     bool sDown = false;
     bool dDown = false;
     // Update is called once per frame
-/*    void FixedUpdate()
+    /*    void FixedUpdate()
+        {
+            rb.AddForce(1, 1, 1, ForceMode.Impulse);
+        }
+        */
+    void OnCollisionEnter(Collision collision)
     {
-        rb.AddForce(1, 1, 1, ForceMode.Impulse);
+        if (collision.gameObject.tag == "player1")
+        {
+            velX += collision.impulse.x * -1; // collision.relativeVelocity.x;
+            velY += collision.impulse.y * -1; // collision.relativeVelocity.y;
+            playerControl = Mathf.Max(0, 1-Vector3.SqrMagnitude(collision.impulse) * 0.0125f);
+        }
+        else if (collision.gameObject.tag == "player2")
+        {
+            velX += collision.impulse.x * 1; // collision.relativeVelocity.x;
+            velY += collision.impulse.y * 1; // collision.relativeVelocity.y;
+            playerControl = Mathf.Max(0, 1-Vector3.SqrMagnitude(collision.impulse)*0.0125f);
+        }
+        else
+        {
+            velX += collision.impulse.x;
+            velY += collision.impulse.y;
+            this.transform.position = new Vector3(this.transform.position.x + collision.impulse.x * 0.01f, this.transform.position.y + collision.impulse.y * 0.01f, this.transform.position.z);
+        }
     }
-    */
+
     void Update () {
+        playerControl = Mathf.Min(1, playerControl + 0.025f);
         rotateVec.y = 0;// rotateVec.y * 0.8f;
         forwardVel = forwardVel * 0.95f;
         if (ASDF)
@@ -106,10 +131,10 @@ public class PlayerMovement : MonoBehaviour {
         }
 
         if (wDown) {
-            forwardVel += 0.25f;
+            forwardVel += 0.1f*playerControl;
         } else if (sDown)
         {
-            forwardVel = forwardVel * 0.95f - 0.17f;
+            forwardVel = forwardVel * (0.95f - 0.05f* playerControl);
         }
         if (aDown && dDown)
         {
@@ -141,8 +166,19 @@ public class PlayerMovement : MonoBehaviour {
         {
             dirFinal = 180 - dirFinal;
         }
-        float velX = Mathf.Sin(dirFinal / 57.2958f) * forwardVel;
-        float velY = Mathf.Cos(dirFinal / 57.2958f) * forwardVel;
+        velX = velX * 0.93f;// + Mathf.Sin(dirFinal / 57.2958f) * forwardVel;
+        velY = velY * 0.93f;// + Mathf.Cos(dirFinal / 57.2958f) * forwardVel;
+        if (wDown || sDown)
+        {
+            velX = velX + Mathf.Sin(dirFinal / 57.2958f) * forwardVel;
+            velY = velY + Mathf.Cos(dirFinal / 57.2958f) * forwardVel;
+        }
+        float speed = Mathf.Sqrt(velX * velX + velY * velY);
+        if (speed > 9)
+        {
+            velX = velX * (1 - (speed - 9) / 9);
+            velY = velY * (1 - (speed - 9) / 9);
+        }
         playerPos.x = playerPos.x + velX;
         playerPos.y = playerPos.y + velY;
         playerVel.x = velX;

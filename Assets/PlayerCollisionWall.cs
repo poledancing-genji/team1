@@ -10,28 +10,28 @@ public class PlayerCollisionWall : MonoBehaviour {
 		
 	}
 
-    // Update is called once per frame
+        // Update is called once per frame
 
-    /*
-     * void Update () {
-        foreach (Transform child in collideables.transform)
-        {
-            float xPos = this.transform.position.x;
-            float yPos = this.transform.position.y;
-            float xChildPos = child.position.x;
-            float yChildPos = child.position.y;
-            float childRightMost = xChildPos + child.localScale.x * 0.5f;
-            float childleftMost = xChildPos - child.localScale.x * 0.5f;
-            float childTopMost = yChildPos + child.localScale.y * 0.5f;
-            float childBotMost = yChildPos - child.localScale.y * 0.5f;
-
-            if (xPos - playerSize < childRightMost && xPos + playerSize > childleftMost && yPos - playerSize < childTopMost && yPos + playerSize > childBotMost)
+        /*
+         * void Update () {
+            foreach (Transform child in collideables.transform)
             {
-            };
+                float xPos = this.transform.position.x;
+                float yPos = this.transform.position.y;
+                float xChildPos = child.position.x;
+                float yChildPos = child.position.y;
+                float childRightMost = xChildPos + child.localScale.x * 0.5f;
+                float childleftMost = xChildPos - child.localScale.x * 0.5f;
+                float childTopMost = yChildPos + child.localScale.y * 0.5f;
+                float childBotMost = yChildPos - child.localScale.y * 0.5f;
 
-            // child.position.x;
-            // Something(child.gameObject);
+                if (xPos - playerSize < childRightMost && xPos + playerSize > childleftMost && yPos - playerSize < childTopMost && yPos + playerSize > childBotMost)
+                {
+                };
+
+                // child.position.x;
+                // Something(child.gameObject);
+            }
         }
+        */
     }
-    */
-}
