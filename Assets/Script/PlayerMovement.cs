@@ -29,16 +29,16 @@ public class PlayerMovement : MonoBehaviour {
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "player1")
+        if (collision.gameObject.name == "player1")
         {
-            velX += collision.impulse.x * -1; // collision.relativeVelocity.x;
-            velY += collision.impulse.y * -1; // collision.relativeVelocity.y;
+            velX += collision.impulse.x * -1.4f;
+            velY += collision.impulse.y * -1.4f;
             playerControl = Mathf.Max(0, 1-Vector3.SqrMagnitude(collision.impulse) * 0.0125f);
         }
-        else if (collision.gameObject.tag == "player2")
+        else if (collision.gameObject.name == "player2")
         {
-            velX += collision.impulse.x * 1; // collision.relativeVelocity.x;
-            velY += collision.impulse.y * 1; // collision.relativeVelocity.y;
+            velX += collision.impulse.x * 1.4f; // collision.relativeVelocity.x;
+            velY += collision.impulse.y * 1.4f; // collision.relativeVelocity.y;
             playerControl = Mathf.Max(0, 1-Vector3.SqrMagnitude(collision.impulse)*0.0125f);
         }
         else if (collision.gameObject.tag == "wall")
@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour {
     void Update () {
         playerControl = Mathf.Min(1, playerControl + 0.025f);
         rotateVec.y = 0;// rotateVec.y * 0.8f;
-        forwardVel = forwardVel * 0.95f;
+        forwardVel = forwardVel * 0.92f;
         if (ASDF)
         {
             if (Input.GetKeyDown(KeyCode.W))
@@ -144,10 +144,10 @@ public class PlayerMovement : MonoBehaviour {
         }
         if (wDown || sDown)
         {
-            rotateSpeed = rotateSpeed * 0.25f;
+            rotateSpeed = rotateSpeed * 0.3f;
         }
         rotateVec.y = rotateVec.y + rotateSpeed;
-        rotateSpeed = rotateSpeed * 0.85f;
+        rotateSpeed = rotateSpeed * 0.8f;
         if (Mathf.Abs(rotateSpeed) < 0.7f)
         {
             rotateSpeed = 0;
@@ -163,8 +163,8 @@ public class PlayerMovement : MonoBehaviour {
         {
             dirFinal = 180 - dirFinal;
         }
-        velX = velX * 0.93f;// + Mathf.Sin(dirFinal / 57.2958f) * forwardVel;
-        velY = velY * 0.93f;// + Mathf.Cos(dirFinal / 57.2958f) * forwardVel;
+        velX = velX * 0.85f; // + Mathf.Sin(dirFinal / 57.2958f) * forwardVel;
+        velY = velY * 0.85f; // + Mathf.Cos(dirFinal / 57.2958f) * forwardVel;
         if (wDown || sDown)
         {
             velX = velX + Mathf.Sin(dirFinal / 57.2958f) * forwardVel;

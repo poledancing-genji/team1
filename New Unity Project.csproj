@@ -83,7 +83,6 @@
   <ItemGroup>
     <Compile Include="Assets\Script\CenterCamera.cs" />
     <Compile Include="Assets\Script\PlayerCameraFollow.cs" />
-    <Compile Include="Assets\Script\PlayerCollisionPlayer.cs" />
     <Compile Include="Assets\Script\PlayerCollisionWall.cs" />
     <Compile Include="Assets\Script\PlayerMovement.cs" />
     <Compile Include="Assets\Script\RaveController.cs" />
