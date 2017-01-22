@@ -26,12 +26,7 @@ public class PlayerMovement : MonoBehaviour {
     bool aDown = false;
     bool sDown = false;
     bool dDown = false;
-    // Update is called once per frame
-    /*    void FixedUpdate()
-        {
-            rb.AddForce(1, 1, 1, ForceMode.Impulse);
-        }
-        */
+
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "player1")
@@ -46,10 +41,12 @@ public class PlayerMovement : MonoBehaviour {
             velY += collision.impulse.y * 1; // collision.relativeVelocity.y;
             playerControl = Mathf.Max(0, 1-Vector3.SqrMagnitude(collision.impulse)*0.0125f);
         }
-        else
+        else if (collision.gameObject.tag == "wall")
         {
-            velX += collision.impulse.x;
-            velY += collision.impulse.y;
+            collision.gameObject.GetComponent<thewallsarealsogay>().ActivateWall();
+            // bounce intensity off of walls
+            velX += collision.impulse.x * 0.5f;
+            velY += collision.impulse.y * 0.5f;
             this.transform.position = new Vector3(this.transform.position.x + collision.impulse.x * 0.01f, this.transform.position.y + collision.impulse.y * 0.01f, this.transform.position.z);
         }
     }
@@ -134,7 +131,7 @@ public class PlayerMovement : MonoBehaviour {
             forwardVel += 0.1f*playerControl;
         } else if (sDown)
         {
-            forwardVel = forwardVel * (0.95f - 0.05f* playerControl);
+            forwardVel = forwardVel - 0.05f;
         }
         if (aDown && dDown)
         {

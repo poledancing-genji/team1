@@ -21,7 +21,6 @@ public class RaveController : MonoBehaviour {
             yield return new WaitForSeconds(waitTime);
             currentColor = colorArray[i];
             i++;
-            Debug.Log(currentColor);
             i = i % numColors;
         }
     }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class lightbehaviourscript : MonoBehaviour {
-    public Light light;
+    public Light l;
     public RaveController r;
 
     void Start ()
@@ -13,6 +13,6 @@ public class lightbehaviourscript : MonoBehaviour {
 
     void Update ()
     {
-        light.color = r.currentColor;
+        l.color = r.currentColor;
     }
 }

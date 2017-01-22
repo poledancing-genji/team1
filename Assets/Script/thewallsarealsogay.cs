@@ -4,37 +4,34 @@ using UnityEngine;
 
 public class thewallsarealsogay : MonoBehaviour {
     public MeshRenderer wallRenderer;
-    private int countInsideTrigger = 0;
-    private Color groundColor;
     public RaveController r;
+    float initialFadeSpeed = 0.00005f;
+    float fadeSpeed = 0.00005f;
+    float fadeAcc = 0.00001f;
     void Start()
     {
         //groundColor = GameObject.Find("Ground").GetComponent<MeshRenderer>().materials[0].GetColor("_Color");
-        groundColor = Color.black;
-        Debug.Log(groundColor);
         r = GameObject.Find("Raver").GetComponent<RaveController>();
     }
-
-    void OnTriggerEnter(Collider other)
+    
+    public void ActivateWall()
     {
-        Debug.Log("trig");
-        countInsideTrigger++;
+        Debug.Log("asldkfjsjfsl");
+        StopCoroutine("pulse");
+        StartCoroutine(pulse());
     }
 
-    void Update ()
+    IEnumerator pulse ()
     {
-        Debug.Log(countInsideTrigger);
-        if (countInsideTrigger > 0) { 
-            wallRenderer.materials[0].SetColor("_LineColor", r.currentColor);
-        } else
-        {
-            wallRenderer.materials[0].SetColor("_LineColor", groundColor);
+        float alpha = 1f;
+        while (alpha > 0f) {
+            Color currColor = r.currentColor;
+            currColor.a = alpha;
+            wallRenderer.materials[0].SetColor("_LineColor", currColor);
+            alpha -= fadeSpeed;
+            fadeSpeed += fadeAcc;
+            yield return null;
         }
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        Debug.Log("asdf");
-        countInsideTrigger--;
+        fadeSpeed = initialFadeSpeed;
     }
 }
