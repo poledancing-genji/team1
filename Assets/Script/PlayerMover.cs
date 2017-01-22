@@ -11,7 +11,7 @@ public class PlayerMover : MonoBehaviour {
     public float speed;
     public float angularSpeed;
     public PlaySoundEffect sfxControl;
-    
+    public PrefabLink death;
     void FixedUpdate() {
        if (Input.GetKey(up))
         {
@@ -36,7 +36,11 @@ public class PlayerMover : MonoBehaviour {
     void OnCollisionEnter(Collision collision)
     {
         string tag = collision.gameObject.tag;
-        if (tag.Equals("player1") || tag.Equals("player2"))
+
+        if (tag == "wall")
+        {
+            collision.gameObject.GetComponent<thewallsarealsogay>().ActivateWall();
+        } else if (tag.Equals("player1") || tag.Equals("player2"))
         {
             Vector3 p1 = transform.position;
             Vector3 p2 = collision.transform.position;
@@ -44,7 +48,12 @@ public class PlayerMover : MonoBehaviour {
             Vector3 v2 = collision.transform.forward;
 
             float angleBetweenMinotaurs = Vector3.Dot(v1, v2);
-            if (angleBetweenMinotaurs > 0)
+            if (angleBetweenMinotaurs < 0)
+            {
+                Debug.Log("headon");
+                sfxControl.PlaySFX();
+            }
+            else
             {
                 Debug.Log("same dir");
                 Vector3 diff = Vector3.Normalize(p2 - p1);
@@ -55,18 +64,15 @@ public class PlayerMover : MonoBehaviour {
                     light1.range -= 1.1f;
                     sfxControl.PlaySFX();
                     //TODO: play damage audio
+                    if (light1.range < 1.1f)
+                    {
+                        GameObject playerDeath = (GameObject)Instantiate(death.gameObject, transform.position, transform.rotation);
+                        Destroy(gameObject);
+                    }
                 }
             }
-            else
-            {
-                Debug.Log("headon");
-                sfxControl.PlaySFX();
-            }
+
         }
 
-        if (tag == "wall")
-       {
-            collision.gameObject.GetComponent<thewallsarealsogay>().ActivateWall();
-       }
     }
 }

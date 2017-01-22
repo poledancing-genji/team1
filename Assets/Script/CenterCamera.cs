@@ -19,6 +19,7 @@ public class CenterCamera : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (obj1 != null && obj2 != null) { 
         this.transform.position = (obj1.transform.position + obj2.transform.position) / 2;
         distApart = 1+Vector3.Distance(this.transform.position, obj1.transform.position);
         camGoalPos = this.transform.position;
@@ -36,5 +37,6 @@ public class CenterCamera : MonoBehaviour {
 
         cam.transform.position = camGoalPos;
         cam.orthographicSize = Mathf.Max(4, camGoalDist);
+    }
     }
 }
