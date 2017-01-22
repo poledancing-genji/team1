@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Stencil_Outline
+  m_Shader: {fileID: 4800000, guid: 07363d18b08e3944fb3c7e0eacac0f57, type: 3}
+  m_ShaderKeywords: USEDISCARD_ON
+  m_LightmapFlags: 5
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs: []
+    m_Floats:
+    - first:
+        name: UseDiscard
+      second: 1
+    - first:
+        name: _Boundry
+      second: 0.455
+    - first:
+        name: _GridSpacing
+      second: 10
+    - first:
+        name: _GridThickness
+      second: 0.001
+    - first:
+        name: _LineWidth
+      second: 0.01
+    - first:
+        name: _Thickness
+      second: 0.5
+    - first:
+        name: _WireThickness
+      second: 231
+    m_Colors:
+    - first:
+        name: _BaseColour
+      second: {r: 0, g: 0, b: 0, a: 0}
+    - first:
+        name: _Color
+      second: {r: 1, g: 0, b: 0, a: 1}
+    - first:
+        name: _Color1
+      second: {r: 1, g: 1, b: 1, a: 1}
+    - first:
+        name: _FillColor
+      second: {r: 0.6666667, g: 0.6666667, b: 0.6666667, a: 0}
+    - first:
+        name: _GridColor
+      second: {r: 1, g: 1, b: 1, a: 0}
+    - first:
+        name: _GridColour
+      second: {r: 0.5, g: 1, b: 1, a: 1}
+    - first:
+        name: _LineColor
+      second: {r: 1, g: 1, b: 1, a: 1}
