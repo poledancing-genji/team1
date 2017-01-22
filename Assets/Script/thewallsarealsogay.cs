@@ -13,10 +13,19 @@ public class thewallsarealsogay : MonoBehaviour
     {
         //groundColor = GameObject.Find("Ground").GetComponent<MeshRenderer>().materials[0].GetColor("_Color");
         r = GameObject.Find("Raver").GetComponent<RaveController>();
+        StopCoroutine("pulse");
+        StartCoroutine(pulse());
     }
 
     public void ActivateWall()
     {
+        StopCoroutine("pulse");
+        StartCoroutine(pulse());
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        //Debug.Log(wallRenderer.materials[0].GetColor("_LineColor").a);
         StopCoroutine("pulse");
         StartCoroutine(pulse());
     }
