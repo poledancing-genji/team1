@@ -1000,7 +1000,7 @@ GameObject:
   - component: {fileID: 480558690}
   - component: {fileID: 480558689}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: StartMenuScripts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

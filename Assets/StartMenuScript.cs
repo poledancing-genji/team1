@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StartMenuScript : MonoBehaviour {
     public GameObject leftPlatform;
@@ -14,7 +15,7 @@ public class StartMenuScript : MonoBehaviour {
     Color rightFinalColor = Color.red;
     float leftColorAmt = 0.1f;
     float rightColorAmt = 0.1f;
-
+    bool loadGameInitialized = false;
     void Start () {
         leftPlatRender = leftPlatform.GetComponent<Renderer>();
         rightPlatRender = rightPlatform.GetComponent<Renderer>();
@@ -48,9 +49,27 @@ public class StartMenuScript : MonoBehaviour {
         }
         leftPlatRender.material.SetColor("_EmissionColor", leftFinalColor);
         rightPlatRender.material.SetColor("_EmissionColor", rightFinalColor);
-        if (leftFinalColor.g + rightFinalColor.r > 1.9f)
+        if (leftFinalColor.g + rightFinalColor.r > 1.9f && !loadGameInitialized)
         {
+            loadGameInitialized = true;
             // when both platforms are lit
+            StopCoroutine("LoadGameScene");
+            StartCoroutine(LoadGameScene());
+        }
+    }
+    IEnumerator LoadGameScene()
+    {
+        var result = SceneManager.LoadSceneAsync("GGJGame", LoadSceneMode.Single);
+        result.allowSceneActivation = false;
+
+        while (!result.isDone)
+        {
+            Debug.Log("progress: " + result.progress);
+            if (result.progress > 0.89f)
+            {
+                result.allowSceneActivation = true;
+            }
+            yield return new WaitForEndOfFrame();
         }
     }
 }
