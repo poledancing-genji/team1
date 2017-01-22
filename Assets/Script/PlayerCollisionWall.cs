@@ -3,35 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerCollisionWall : MonoBehaviour {
-    public GameObject collideables;
-    // float playerSize = 0.5f;
-    // Use this for initialization
+    public ParticleSystem PartiSystem1;
+    public ParticleSystem PartiSystem2;
+    public ParticleSystem PartiSystem3;
+    int nextSyst = 0;
+    Vector3 emmissionPoint = new Vector3(0, 0, -0.1f);
     void Start () {
-		
-	}
 
-        // Update is called once per frame
-
-        /*
-         * void Update () {
-            foreach (Transform child in collideables.transform)
-            {
-                float xPos = this.transform.position.x;
-                float yPos = this.transform.position.y;
-                float xChildPos = child.position.x;
-                float yChildPos = child.position.y;
-                float childRightMost = xChildPos + child.localScale.x * 0.5f;
-                float childleftMost = xChildPos - child.localScale.x * 0.5f;
-                float childTopMost = yChildPos + child.localScale.y * 0.5f;
-                float childBotMost = yChildPos - child.localScale.y * 0.5f;
-
-                if (xPos - playerSize < childRightMost && xPos + playerSize > childleftMost && yPos - playerSize < childTopMost && yPos + playerSize > childBotMost)
-                {
-                };
-
-                // child.position.x;
-                // Something(child.gameObject);
-            }
-        }
-        */
     }
+    void OnCollisionEnter(Collision collision)
+    {
+        ContactPoint contact = collision.contacts[0];
+        emmissionPoint = contact.point * 0.8f + this.transform.position * 0.2f;
+        if (nextSyst == 0)
+        {
+            PartiSystem1.transform.position = emmissionPoint;
+            PartiSystem1.Emit((int)(Vector3.Magnitude(collision.impulse)));
+        } else if (nextSyst == 1)
+        {
+            PartiSystem2.transform.position = emmissionPoint;
+            PartiSystem2.Emit((int)Vector3.Magnitude(collision.impulse));
+        } else if (nextSyst == 2)
+        {
+            PartiSystem3.transform.position = emmissionPoint;
+            PartiSystem3.Emit((int)Vector3.Magnitude(collision.impulse));
+            
+        }
+        nextSyst = (nextSyst + 1) % 3;
+    }
+}
