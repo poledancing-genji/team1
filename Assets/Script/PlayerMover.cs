@@ -34,9 +34,37 @@ public class PlayerMover : MonoBehaviour {
 
     void OnCollisionEnter(Collision collision)
     {
-       if (collision.gameObject.tag == "wall")
+        string tag = collision.gameObject.tag;
+        if (tag.Equals("player1") || tag.Equals("player2"))
+        {
+            Vector3 p1 = transform.position;
+            Vector3 p2 = collision.transform.position;
+            Vector3 v1 = transform.forward;
+            Vector3 v2 = collision.transform.forward;
+
+            float angleBetweenMinotaurs = Vector3.Dot(v1, v2);
+            if (angleBetweenMinotaurs > 0)
+            {
+                Debug.Log("same dir");
+                Vector3 diff = Vector3.Normalize(p2 - p1);
+                float dotProd = Vector3.Dot(diff, v1);
+                if (dotProd < 0)
+                {
+                    Light light1 = this.GetComponentInChildren(typeof(Light)) as Light;
+                    light1.range -= 1.1f;
+                    //TODO: play damage audio
+                }
+            }
+            else
+            {
+                Debug.Log("headon");
+                //TODO: play head on audio
+            }
+        }
+
+        if (tag == "wall")
        {
             collision.gameObject.GetComponent<thewallsarealsogay>().ActivateWall();
-        }
+       }
     }
 }
