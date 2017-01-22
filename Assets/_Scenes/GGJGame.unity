@@ -717,10 +717,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 1502964848477680, guid: 3d148628d450e8343823c84d6e4ce306, type: 2}
-      propertyPath: m_Name
-      value: player1
-      objectReference: {fileID: 0}
     - target: {fileID: 114979150451381226, guid: 3d148628d450e8343823c84d6e4ce306,
         type: 2}
       propertyPath: PartiSystem1
@@ -736,6 +732,30 @@ Prefab:
       propertyPath: PartiSystem3
       value: 
       objectReference: {fileID: 1652430421}
+    - target: {fileID: 1502964848477680, guid: 3d148628d450e8343823c84d6e4ce306, type: 2}
+      propertyPath: m_Name
+      value: player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114357942403842834, guid: 3d148628d450e8343823c84d6e4ce306,
+        type: 2}
+      propertyPath: up
+      value: 273
+      objectReference: {fileID: 0}
+    - target: {fileID: 114357942403842834, guid: 3d148628d450e8343823c84d6e4ce306,
+        type: 2}
+      propertyPath: down
+      value: 274
+      objectReference: {fileID: 0}
+    - target: {fileID: 114357942403842834, guid: 3d148628d450e8343823c84d6e4ce306,
+        type: 2}
+      propertyPath: left
+      value: 276
+      objectReference: {fileID: 0}
+    - target: {fileID: 114357942403842834, guid: 3d148628d450e8343823c84d6e4ce306,
+        type: 2}
+      propertyPath: right
+      value: 275
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3d148628d450e8343823c84d6e4ce306, type: 2}
   m_IsPrefabParent: 0
@@ -1065,10 +1085,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 1502964848477680, guid: 3d148628d450e8343823c84d6e4ce306, type: 2}
-      propertyPath: m_Name
-      value: player2
-      objectReference: {fileID: 0}
     - target: {fileID: 114979150451381226, guid: 3d148628d450e8343823c84d6e4ce306,
         type: 2}
       propertyPath: PartiSystem1
@@ -1084,10 +1100,19 @@ Prefab:
       propertyPath: PartiSystem3
       value: 
       objectReference: {fileID: 156159047}
-    - target: {fileID: 114853615410089340, guid: 3d148628d450e8343823c84d6e4ce306,
+    - target: {fileID: 1502964848477680, guid: 3d148628d450e8343823c84d6e4ce306, type: 2}
+      propertyPath: m_Name
+      value: player2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114357942403842834, guid: 3d148628d450e8343823c84d6e4ce306,
         type: 2}
-      propertyPath: ASDF
-      value: 1
+      propertyPath: left
+      value: 97
+      objectReference: {fileID: 0}
+    - target: {fileID: 114357942403842834, guid: 3d148628d450e8343823c84d6e4ce306,
+        type: 2}
+      propertyPath: right
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3d148628d450e8343823c84d6e4ce306, type: 2}
