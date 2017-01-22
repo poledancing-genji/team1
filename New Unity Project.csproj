@@ -94,10 +94,9 @@
     <Compile Include="Assets\Script\PlayerMovement.cs" />
     <Compile Include="Assets\Script\PlayerMover.cs" />
     <Compile Include="Assets\Script\RaveController.cs" />
+    <Compile Include="Assets\Script\StartMenuScript.cs" />
     <Compile Include="Assets\Script\lightbehaviourscript.cs" />
     <Compile Include="Assets\Script\thewallsarealsogay.cs" />
-    <Compile Include="Assets\StartMenuScript.cs" />
-    <Compile Include="Assets\WallCollideLight.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Shaders\Outline.shader" />
