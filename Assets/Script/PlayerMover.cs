@@ -10,10 +10,8 @@ public class PlayerMover : MonoBehaviour {
     public KeyCode right;
     public float speed;
     public float angularSpeed;
-
-    public AudioClip[] sfx = new AudioClip[12];
-    public AudioSource audioSource;
-
+    public PlaySoundEffect sfxControl;
+    
     void FixedUpdate() {
        if (Input.GetKey(up))
         {
@@ -55,13 +53,14 @@ public class PlayerMover : MonoBehaviour {
                 {
                     Light light1 = this.GetComponentInChildren(typeof(Light)) as Light;
                     light1.range -= 1.1f;
+                    sfxControl.PlaySFX();
                     //TODO: play damage audio
                 }
             }
             else
             {
                 Debug.Log("headon");
-                //TODO: play head on audio
+                sfxControl.PlaySFX();
             }
         }
 

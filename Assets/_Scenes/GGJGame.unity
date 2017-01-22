@@ -231,6 +231,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 114225261017418266, guid: d2c6a2193d138f643b1c390021fd9d49,
+        type: 2}
+      propertyPath: sfxControl
+      value: 
+      objectReference: {fileID: 2056367772}
     - target: {fileID: 114383738364323316, guid: d2c6a2193d138f643b1c390021fd9d49,
         type: 2}
       propertyPath: PartiSystem1
@@ -246,8 +251,7 @@ Prefab:
       propertyPath: PartiSystem3
       value: 
       objectReference: {fileID: 1652430421}
-    m_RemovedComponents:
-    - {fileID: 114297216026750344, guid: d2c6a2193d138f643b1c390021fd9d49, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d2c6a2193d138f643b1c390021fd9d49, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &97549682 stripped
@@ -999,6 +1003,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 610125023}
+  - {fileID: 2056367770}
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2724,6 +2729,141 @@ Transform:
   m_PrefabParentObject: {fileID: 4847513583298932, guid: a2f1b36849349a14094b16289ca41be4,
     type: 2}
   m_PrefabInternal: {fileID: 1448864017}
+--- !u!1 &2056367769
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2056367770}
+  - component: {fileID: 2056367772}
+  - component: {fileID: 2056367771}
+  m_Layer: 0
+  m_Name: Voiceover
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2056367770
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2056367769}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 697776778}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &2056367771
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2056367769}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!114 &2056367772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2056367769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83d0517687e15c148af4682040dbfd0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 2056367771}
+  sfx:
+  - {fileID: 8300000, guid: 6c354637e18e090459c0a8b330dc5d2a, type: 3}
+  - {fileID: 8300000, guid: 53d32d8cbd20b2b4c9863d46dca398ed, type: 3}
+  - {fileID: 8300000, guid: fb56b62666ec0844891eb602228a9243, type: 3}
+  - {fileID: 8300000, guid: a5774f03bfb5a0549aeda48cf81694d9, type: 3}
+  - {fileID: 8300000, guid: 36d3eb454a42b4649b849c348401c083, type: 3}
+  - {fileID: 8300000, guid: 7671b223b75624f4abc690dbd5573f4a, type: 3}
+  - {fileID: 8300000, guid: 965a745f322394c4faa772fce8ebb8d6, type: 3}
+  - {fileID: 8300000, guid: e4ff93ef0bbf48c4890edbabc5fe4645, type: 3}
+  - {fileID: 8300000, guid: 665b7133ec2b52540be85f5206834dff, type: 3}
+  - {fileID: 8300000, guid: 878eb2c0235553f4490b0c9a8c425cf5, type: 3}
+  - {fileID: 8300000, guid: 432f78051f04f2947985a1c6d9da213b, type: 3}
+  - {fileID: 8300000, guid: e4ff93ef0bbf48c4890edbabc5fe4645, type: 3}
 --- !u!1001 &2099798982
 Prefab:
   m_ObjectHideFlags: 0
@@ -2763,6 +2903,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 114375420858471748, guid: e1576e4254a26f843b58d48a375cbd3b,
+        type: 2}
+      propertyPath: sfxControl
+      value: 
+      objectReference: {fileID: 2056367772}
     - target: {fileID: 114134773034408186, guid: e1576e4254a26f843b58d48a375cbd3b,
         type: 2}
       propertyPath: PartiSystem1
@@ -2778,20 +2923,7 @@ Prefab:
       propertyPath: PartiSystem3
       value: 
       objectReference: {fileID: 156159047}
-    - target: {fileID: 4724936770354792, guid: e1576e4254a26f843b58d48a375cbd3b, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 4724936770354792, guid: e1576e4254a26f843b58d48a375cbd3b, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 89.99999
-      objectReference: {fileID: 0}
-    - target: {fileID: 4724936770354792, guid: e1576e4254a26f843b58d48a375cbd3b, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 89.99999
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114600505666736818, guid: e1576e4254a26f843b58d48a375cbd3b, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e1576e4254a26f843b58d48a375cbd3b, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &2130788613 stripped

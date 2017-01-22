@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 33788192095730576}
   - component: {fileID: 136854965837639514}
   - component: {fileID: 23191200353657876}
-  - component: {fileID: 114600505666736818}
   - component: {fileID: 114134773034408186}
   - component: {fileID: 54400490485093868}
   - component: {fileID: 114375420858471748}
@@ -321,8 +320,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1061351641611902}
-  m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 6, y: -3.45, z: -0.67}
+  m_LocalRotation: {x: 0.50000024, y: -0.5, z: -0.5, w: 0.49999982}
+  m_LocalPosition: {x: 18.204884, y: -1.7, z: -0.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4792874186847862}
@@ -330,7 +329,7 @@ Transform:
   - {fileID: 4376609248874112}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
+  m_LocalEulerAnglesHint: {x: 180, y: 89.99999, z: 89.99999}
 --- !u!4 &4792874186847862
 Transform:
   m_ObjectHideFlags: 1
@@ -846,19 +845,7 @@ MonoBehaviour:
   right: 275
   speed: 30
   angularSpeed: 3
---- !u!114 &114600505666736818
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1061351641611902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b6f02be4b1e6e746803969794d91678, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ASDF: 1
-  rb: {fileID: 54400490485093868}
+  sfxControl: {fileID: 0}
 --- !u!114 &114813465903240056
 MonoBehaviour:
   m_ObjectHideFlags: 1
