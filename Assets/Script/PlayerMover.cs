@@ -11,6 +11,9 @@ public class PlayerMover : MonoBehaviour {
     public float speed;
     public float angularSpeed;
 
+    public AudioClip[] sfx = new AudioClip[12];
+    public AudioSource audioSource;
+
     void FixedUpdate() {
        if (Input.GetKey(up))
         {

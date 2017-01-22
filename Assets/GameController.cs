@@ -5,7 +5,8 @@ using UnityEngine;
 public class GameController : MonoBehaviour {
     public GameObject player1;
     public GameObject player2;
-    // public AudioSource audioSource;
+    public AudioSource audioSource;
+    public AudioSource music;
     public GameObject wall1;
     public GameObject wall2;
     public GameObject wall3;
@@ -36,6 +37,10 @@ public class GameController : MonoBehaviour {
         } else
         {
             remainingDelay -= Time.deltaTime;
+        }
+        if (!audioSource.isPlaying && !music.isPlaying)
+        {
+            music.Play();
         }
     }
 }
