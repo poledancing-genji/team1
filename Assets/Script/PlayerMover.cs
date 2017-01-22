@@ -24,11 +24,11 @@ public class PlayerMover : MonoBehaviour {
 
         if (Input.GetKey(right))
         {
-            transform.Rotate(Vector3.up * angularSpeed);
+            transform.Rotate(-1 * Vector3.up * angularSpeed);
         }
         else if (Input.GetKey(left))
         {
-            transform.Rotate(-1 * Vector3.up * angularSpeed);
+            transform.Rotate(Vector3.up * angularSpeed);
         }
     }
 
